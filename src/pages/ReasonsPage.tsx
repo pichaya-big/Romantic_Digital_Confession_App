@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import type { MouseEvent } from 'react'
+import type { KeyboardEvent, MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon.tsx'
+
+interface WaveBar {
+  id: string
+  h: number
+  color: string
+}
 
 interface Reason {
   title: string
@@ -13,23 +19,23 @@ interface Reason {
   caption: string
 }
 
-const WAVE = [
-  { h: 14, color: 'bg-primary/30' },
-  { h: 20, color: 'bg-primary/40' },
-  { h: 28, color: 'bg-primary' },
-  { h: 16, color: 'bg-primary' },
-  { h: 24, color: 'bg-secondary' },
-  { h: 32, color: 'bg-secondary' },
-  { h: 20, color: 'bg-primary' },
-  { h: 12, color: 'bg-primary/50' },
-  { h: 24, color: 'bg-secondary/70' },
-  { h: 28, color: 'bg-primary' },
-  { h: 16, color: 'bg-primary/40' },
-  { h: 12, color: 'bg-secondary/50' },
-  { h: 24, color: 'bg-primary/70' },
-  { h: 10, color: 'bg-primary/30' },
-  { h: 18, color: 'bg-secondary/40' },
-  { h: 20, color: 'bg-primary/60' },
+const WAVE: WaveBar[] = [
+  { id: 'wave-1', h: 14, color: 'bg-primary/30' },
+  { id: 'wave-2', h: 20, color: 'bg-primary/40' },
+  { id: 'wave-3', h: 28, color: 'bg-primary' },
+  { id: 'wave-4', h: 16, color: 'bg-primary' },
+  { id: 'wave-5', h: 24, color: 'bg-secondary' },
+  { id: 'wave-6', h: 32, color: 'bg-secondary' },
+  { id: 'wave-7', h: 20, color: 'bg-primary' },
+  { id: 'wave-8', h: 12, color: 'bg-primary/50' },
+  { id: 'wave-9', h: 24, color: 'bg-secondary/70' },
+  { id: 'wave-10', h: 28, color: 'bg-primary' },
+  { id: 'wave-11', h: 16, color: 'bg-primary/40' },
+  { id: 'wave-12', h: 12, color: 'bg-secondary/50' },
+  { id: 'wave-13', h: 24, color: 'bg-primary/70' },
+  { id: 'wave-14', h: 10, color: 'bg-primary/30' },
+  { id: 'wave-15', h: 18, color: 'bg-secondary/40' },
+  { id: 'wave-16', h: 20, color: 'bg-primary/60' },
 ]
 
 const REASONS: Reason[] = [
@@ -132,6 +138,11 @@ function VoiceMemo() {
     return () => clearInterval(id)
   }, [playing])
 
+  const handleSeekKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowLeft') setProgress((p) => Math.max(p - 5, 0))
+    if (e.key === 'ArrowRight') setProgress((p) => Math.min(p + 5, 100))
+  }
+
   const seek = (e: MouseEvent<HTMLDivElement>) => {
     const rect = trackRef.current?.getBoundingClientRect()
     if (!rect) return
@@ -171,7 +182,7 @@ function VoiceMemo() {
           <div className="flex items-center justify-between gap-[3px] h-8 px-1">
             {WAVE.map((bar, i) => (
               <span
-                key={i}
+                key={bar.id}
                 className={`w-1 rounded-full ${bar.color} transition-all duration-300`}
                 style={{ height: `${heights[i]}px` }}
               />
@@ -179,7 +190,14 @@ function VoiceMemo() {
           </div>
           <div
             ref={trackRef}
+            role="slider"
+            tabIndex={0}
+            aria-label="Seek voice memo"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={progress}
             onClick={seek}
+            onKeyDown={handleSeekKey}
             className="relative w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden cursor-pointer"
           >
             <div

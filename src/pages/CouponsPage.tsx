@@ -309,7 +309,7 @@ export default function CouponsPage() {
   )
 }
 
-function Voucher({ coupon, isRedeemed, onToggle }: { coupon: Coupon; isRedeemed: boolean; onToggle: () => void }) {
+function Voucher({ coupon, isRedeemed, onToggle }: Readonly<{ coupon: Coupon; isRedeemed: boolean; onToggle: () => void }>) {
   const cardBg = coupon.golden
     ? 'bg-gradient-to-br from-primary-fixed to-secondary-fixed shadow-md'
     : 'bg-surface-container-lowest/90 backdrop-blur-md shadow-sm'

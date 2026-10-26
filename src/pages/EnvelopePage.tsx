@@ -6,6 +6,12 @@ import Icon from '../components/Icon.tsx'
 const CORRECT_PIN = '1024'
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+function digitBoxClass(error: boolean, filled: boolean): string {
+  if (error) return 'bg-error-container animate-wiggle'
+  if (filled) return 'bg-primary-fixed shadow-md'
+  return 'bg-surface-container-low'
+}
+
 interface Heart {
   id: string
   left: number
@@ -138,13 +144,7 @@ export default function EnvelopePage() {
                 return (
                   <div
                     key={i}
-                    className={`w-12 h-14 rounded-DEFAULT flex flex-col items-center justify-center shadow-inner transition-all duration-300 ${
-                      error
-                        ? 'bg-error-container animate-wiggle'
-                        : char !== undefined
-                          ? 'bg-primary-fixed shadow-md'
-                          : 'bg-surface-container-low'
-                    }`}
+                    className={`w-12 h-14 rounded-DEFAULT flex flex-col items-center justify-center shadow-inner transition-all duration-300 ${digitBoxClass(error, char !== undefined)}`}
                   >
                     {char !== undefined ? (
                       <span className="font-headline-sm text-headline-sm text-primary font-bold">{char}</span>
@@ -254,7 +254,7 @@ export default function EnvelopePage() {
   )
 }
 
-function KeyButton({ children, onClick }: { children: ReactNode; onClick: () => void }) {
+function KeyButton({ children, onClick }: Readonly<{ children: ReactNode; onClick: () => void }>) {
   return (
     <button
       type="button"

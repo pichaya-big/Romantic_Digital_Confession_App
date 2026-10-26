@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import type { CSSProperties } from 'react'
+import type { CSSProperties, KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon.tsx'
 
@@ -183,8 +183,17 @@ export default function MomentsPage() {
   )
 }
 
-function MilestoneItem({ milestone, tilt }: { milestone: Milestone; tilt: string }) {
+function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; tilt: string }>) {
   const [flipped, setFlipped] = useState(false)
+
+  const toggleFlip = () => setFlipped((f) => !f)
+
+  const handleFlipKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      toggleFlip()
+    }
+  }
 
   return (
     <div className="relative pb-10 last:pb-0">
@@ -198,7 +207,12 @@ function MilestoneItem({ milestone, tilt }: { milestone: Milestone; tilt: string
         <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 rounded-sm ${milestone.tape} opacity-80 z-10`} />
         <div
           className="relative [perspective:1200px]"
-          onClick={() => setFlipped((f) => !f)}
+          role="button"
+          tabIndex={0}
+          aria-pressed={flipped}
+          aria-label={`${milestone.title}, ${flipped ? 'show photo' : 'reveal secret note'}`}
+          onClick={toggleFlip}
+          onKeyDown={handleFlipKey}
         >
           <div
             className={`grid transition-transform duration-700 [transform-style:preserve-3d] ${

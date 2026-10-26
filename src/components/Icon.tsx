@@ -7,7 +7,7 @@ interface IconProps {
   style?: CSSProperties
 }
 
-export default function Icon({ name, filled = false, className = '', style }: IconProps) {
+export default function Icon({ name, filled = false, className = '', style }: Readonly<IconProps>) {
   return (
     <span
       aria-hidden="true"
