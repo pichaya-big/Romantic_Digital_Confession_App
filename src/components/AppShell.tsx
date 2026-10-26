@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
-import Icon from './Icon.jsx'
+import Icon from './Icon.tsx'
 import { TABS } from '../nav.js'
 
 export default function AppShell() {

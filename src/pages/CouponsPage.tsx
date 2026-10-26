@@ -1,8 +1,50 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Icon from '../components/Icon.jsx'
+import Icon from '../components/Icon.tsx'
 
-const QUIZ = {
+interface QuizOption {
+  label: string
+  sub: string
+  icon: string
+  iconClass: string
+}
+
+interface Quiz {
+  question: string
+  hint: string
+  options: QuizOption[]
+}
+
+interface Coupon {
+  id: string
+  golden?: boolean
+  code: string
+  codeClass: string
+  codeIcon?: string
+  statusDot?: string | null
+  statusIcon?: string
+  statusText: string
+  statusClass: string
+  title: string
+  description: string
+  metaLabel: string
+  metaValue: string
+  metaClass: string
+  buttonIcon: string
+  buttonLabel: string
+  buttonClass: string
+  tearLabel: string
+  tearClass?: string
+  serial: string
+  serialClass: string
+  bars: string[]
+  barClass: string
+  stampClass: string
+  stampIcon: string
+  stampText: string
+}
+
+const QUIZ: Quiz = {
   question: '“Who said ‘I miss you’ first?”',
   hint: 'Pick who made the first move. Be honest!',
   options: [
@@ -13,7 +55,7 @@ const QUIZ = {
   ],
 }
 
-const COUPONS = [
+const COUPONS: Coupon[] = [
   {
     id: 'coupon-1',
     code: '#HS-001 • SWEET REWARD',
@@ -120,12 +162,14 @@ const COUPONS = [
 ]
 
 export default function CouponsPage() {
-  const [redeemed, setRedeemed] = useState(() => Object.fromEntries(COUPONS.map((c) => [c.id, false])))
-  const [answer, setAnswer] = useState(null)
+  const [redeemed, setRedeemed] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(COUPONS.map((c) => [c.id, false])),
+  )
+  const [answer, setAnswer] = useState<string | null>(null)
 
   const readyCount = COUPONS.filter((c) => !redeemed[c.id]).length
 
-  const toggleRedeem = (id) => setRedeemed((prev) => ({ ...prev, [id]: !prev[id] }))
+  const toggleRedeem = (id: string) => setRedeemed((prev) => ({ ...prev, [id]: !prev[id] }))
 
   return (
     <div className="flex flex-col w-full px-margin pb-space-lg gap-space-lg relative overflow-hidden">
@@ -265,7 +309,7 @@ export default function CouponsPage() {
   )
 }
 
-function Voucher({ coupon, isRedeemed, onToggle }) {
+function Voucher({ coupon, isRedeemed, onToggle }: { coupon: Coupon; isRedeemed: boolean; onToggle: () => void }) {
   const cardBg = coupon.golden
     ? 'bg-gradient-to-br from-primary-fixed to-secondary-fixed shadow-md'
     : 'bg-surface-container-lowest/90 backdrop-blur-md shadow-sm'

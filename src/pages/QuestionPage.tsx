@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Icon from '../components/Icon.jsx'
+import Icon from '../components/Icon.tsx'
 
 const DODGE_PHRASES = [
   'Oops, button ran away! 🏃💨',
@@ -9,18 +9,20 @@ const DODGE_PHRASES = [
   "It's destined to be YES! 🥰",
 ]
 
+type Phase = 'proposal' | 'leaving' | 'celebration'
+
 const DEFAULT_NO_TEXT = 'Let me think... 🤔'
 
 export default function QuestionPage() {
-  const [phase, setPhase] = useState('proposal') // 'proposal' | 'leaving' | 'celebration'
+  const [phase, setPhase] = useState<Phase>('proposal') // 'proposal' | 'leaving' | 'celebration'
   const [dodgeCount, setDodgeCount] = useState(0)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
-  const [toast, setToast] = useState(null)
-  const timers = useRef([])
+  const [toast, setToast] = useState<string | null>(null)
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([])
 
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
 
-  const later = (fn, ms) => {
+  const later = (fn: () => void, ms: number) => {
     timers.current.push(setTimeout(fn, ms))
   }
 
@@ -34,7 +36,7 @@ export default function QuestionPage() {
 
   const noText = dodgeCount === 0 ? DEFAULT_NO_TEXT : DODGE_PHRASES[(dodgeCount - 1) % DODGE_PHRASES.length]
 
-  const showToast = (message) => {
+  const showToast = (message: string) => {
     setToast(message)
     later(() => setToast(null), 2600)
   }
@@ -268,11 +270,13 @@ export default function QuestionPage() {
 }
 
 function Confetti() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
     const canvas = ref.current
+    if (!canvas) return undefined
     const ctx = canvas.getContext('2d')
+    if (!ctx) return undefined
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
 
@@ -297,9 +301,9 @@ function Confetti() {
 
     const DURATION = 5000
     const start = performance.now()
-    let frame
+    let frame = 0
 
-    const drawHeart = (size) => {
+    const drawHeart = (size: number) => {
       const top = size * 0.3
       ctx.beginPath()
       ctx.moveTo(0, top)
@@ -310,7 +314,7 @@ function Confetti() {
       ctx.fill()
     }
 
-    const draw = (now) => {
+    const draw = (now: number) => {
       const elapsed = now - start
       ctx.clearRect(0, 0, width, height)
 

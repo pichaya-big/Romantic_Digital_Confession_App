@@ -1,6 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
-import Icon from '../components/Icon.jsx'
+import Icon from '../components/Icon.tsx'
+
+interface Reason {
+  title: string
+  description: string
+  icon: string
+  iconClass: string
+  image: string
+  alt: string
+  caption: string
+}
 
 const WAVE = [
   { h: 14, color: 'bg-primary/30' },
@@ -21,7 +32,7 @@ const WAVE = [
   { h: 20, color: 'bg-primary/60' },
 ]
 
-const REASONS = [
+const REASONS: Reason[] = [
   {
     title: 'Your infectious laugh',
     description:
@@ -110,7 +121,7 @@ function VoiceMemo() {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(40)
   const [heights, setHeights] = useState(WAVE.map((w) => w.h))
-  const trackRef = useRef(null)
+  const trackRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!playing) return undefined
@@ -121,8 +132,9 @@ function VoiceMemo() {
     return () => clearInterval(id)
   }, [playing])
 
-  const seek = (e) => {
-    const rect = trackRef.current.getBoundingClientRect()
+  const seek = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = trackRef.current?.getBoundingClientRect()
+    if (!rect) return
     const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1)
     setProgress(Math.round(ratio * 100))
   }
@@ -191,17 +203,18 @@ function VoiceMemo() {
 function ReasonCarousel() {
   const [index, setIndex] = useState(1)
   const [liked, setLiked] = useState(() => REASONS.map(() => false))
-  const trackRef = useRef(null)
+  const trackRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
-    const cards = trackRef.current?.children
-    if (!cards || cards.length < 2) return
+    const track = trackRef.current
+    if (!track || track.children.length < 2) return
+    const cards = track.children as HTMLCollectionOf<HTMLElement>
     const step = cards[1].offsetLeft - cards[0].offsetLeft
-    const next = Math.round(trackRef.current.scrollLeft / step) + 1
+    const next = Math.round(track.scrollLeft / step) + 1
     setIndex(Math.min(Math.max(next, 1), REASONS.length))
   }
 
-  const toggleLike = (i) => {
+  const toggleLike = (i: number) => {
     setLiked((prev) => prev.map((v, idx) => (idx === i ? !v : v)))
   }
 
@@ -267,12 +280,12 @@ function ReasonCarousel() {
 
 function ReactionRibbon() {
   const [counts, setCounts] = useState(() => PILLS.map((p) => p.count))
-  const [feedback, setFeedback] = useState(null)
-  const timer = useRef(null)
+  const [feedback, setFeedback] = useState<string | null>(null)
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   useEffect(() => () => clearTimeout(timer.current), [])
 
-  const react = (i) => {
+  const react = (i: number) => {
     setCounts((prev) => prev.map((c, idx) => (idx === i ? c + 1 : c)))
     setFeedback(`${PILLS[i].emoji} Note remembered!`)
     clearTimeout(timer.current)

@@ -1,8 +1,31 @@
 import { useRef, useState } from 'react'
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import Icon from '../components/Icon.jsx'
+import Icon from '../components/Icon.tsx'
 
-const MILESTONES = [
+interface Milestone {
+  date: string
+  title: string
+  emoji?: string
+  description: string
+  image: string
+  alt: string
+  node: { icon: string; className: string }
+  tape: string
+  secretLabel: string
+  secretIcon: string
+  secret: string
+}
+
+interface Floater {
+  id: string
+  emoji: string
+  left: number
+  top: number
+  dx: string
+}
+
+const MILESTONES: Milestone[] = [
   {
     date: 'Oct 14, 2023',
     title: 'First Coffee Date @ The Corner Cafe',
@@ -56,7 +79,7 @@ const MILESTONES = [
 
 const REACTIONS = ['💖', '🥹', '✨']
 
-function createFloater(emoji, rect) {
+function createFloater(emoji: string, rect: DOMRect): Floater {
   return {
     id: `${Date.now()}-${Math.random()}`,
     emoji,
@@ -68,10 +91,10 @@ function createFloater(emoji, rect) {
 
 export default function MomentsPage() {
   const [count, setCount] = useState(365)
-  const [floaters, setFloaters] = useState([])
-  const reactionRef = useRef(null)
+  const [floaters, setFloaters] = useState<Floater[]>([])
+  const reactionRef = useRef<HTMLDivElement>(null)
 
-  const sendReaction = (emoji) => {
+  const sendReaction = (emoji: string) => {
     setCount((c) => c + 1)
     const rect = reactionRef.current?.getBoundingClientRect()
     if (!rect) return
@@ -151,7 +174,7 @@ export default function MomentsPage() {
           key={f.id}
           aria-hidden="true"
           className="pointer-events-none fixed z-50 text-2xl select-none animate-float-up"
-          style={{ left: f.left, top: f.top, '--dx': f.dx }}
+          style={{ left: f.left, top: f.top, '--dx': f.dx } as CSSProperties}
         >
           {f.emoji}
         </span>
@@ -160,7 +183,7 @@ export default function MomentsPage() {
   )
 }
 
-function MilestoneItem({ milestone, tilt }) {
+function MilestoneItem({ milestone, tilt }: { milestone: Milestone; tilt: string }) {
   const [flipped, setFlipped] = useState(false)
 
   return (

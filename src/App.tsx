@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import AppShell from './components/AppShell.jsx'
-import EnvelopePage from './pages/EnvelopePage.jsx'
-import MomentsPage from './pages/MomentsPage.jsx'
-import ReasonsPage from './pages/ReasonsPage.jsx'
-import CouponsPage from './pages/CouponsPage.jsx'
-import QuestionPage from './pages/QuestionPage.jsx'
+import AppShell from './components/AppShell.tsx'
+import EnvelopePage from './pages/EnvelopePage.tsx'
+import MomentsPage from './pages/MomentsPage.tsx'
+import ReasonsPage from './pages/ReasonsPage.tsx'
+import CouponsPage from './pages/CouponsPage.tsx'
+import QuestionPage from './pages/QuestionPage.tsx'
 
 function App() {
   return (

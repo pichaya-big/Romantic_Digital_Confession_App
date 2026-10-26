@@ -1,22 +1,32 @@
 import { useEffect, useRef, useState } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Icon from '../components/Icon.jsx'
+import Icon from '../components/Icon.tsx'
 
 const CORRECT_PIN = '1024'
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+interface Heart {
+  id: string
+  left: number
+  size: number
+  dx: string
+  dy: string
+  rot: string
+}
 
 export default function EnvelopePage() {
   const navigate = useNavigate()
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
-  const [hearts, setHearts] = useState([])
+  const [hearts, setHearts] = useState<Heart[]>([])
   const [opening, setOpening] = useState(false)
-  const timers = useRef([])
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([])
   const unlocked = pin === CORRECT_PIN
 
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
 
-  const later = (fn, ms) => {
+  const later = (fn: () => void, ms: number) => {
     timers.current.push(setTimeout(fn, ms))
   }
 
@@ -33,7 +43,7 @@ export default function EnvelopePage() {
     later(() => setHearts((prev) => prev.filter((h) => !batch.includes(h))), 1500)
   }
 
-  const handleDigit = (digit) => {
+  const handleDigit = (digit: string) => {
     if (error || pin.length >= 4 || unlocked) return
     const next = pin + digit
     setPin(next)
@@ -227,7 +237,7 @@ export default function EnvelopePage() {
                   '--dx': h.dx,
                   '--dy': h.dy,
                   '--rot': h.rot,
-                }}
+                } as CSSProperties}
               >
                 favorite
               </span>
@@ -244,7 +254,7 @@ export default function EnvelopePage() {
   )
 }
 
-function KeyButton({ children, onClick }) {
+function KeyButton({ children, onClick }: { children: ReactNode; onClick: () => void }) {
   return (
     <button
       type="button"
