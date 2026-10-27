@@ -45,13 +45,13 @@ interface Coupon {
 }
 
 const QUIZ: Quiz = {
-  question: '“Who said ‘I miss you’ first?”',
-  hint: 'Pick who made the first move. Be honest!',
+  question: '“ใครพูดว่า ‘คิดถึงนะ’ ก่อน?”',
+  hint: 'เลือกว่าใครเป็นคนเริ่มก่อน ตอบตามความจริงนะ!',
   options: [
-    { label: 'You did!', sub: 'With zero hesitation', icon: 'sentiment_satisfied_alt', iconClass: 'text-secondary' },
-    { label: 'Definitely me', sub: 'Blushing immediately', icon: 'favorite', iconClass: 'text-primary' },
-    { label: 'At the same second', sub: 'Telepathic link', icon: 'sync_alt', iconClass: 'text-tertiary' },
-    { label: 'The 3AM text', sub: 'Proof still exists', icon: 'music_note', iconClass: 'text-secondary-container' },
+    { label: 'คุณเลย!', sub: 'ไม่ลังเลเลยสักนิด', icon: 'sentiment_satisfied_alt', iconClass: 'text-secondary' },
+    { label: 'แน่นอนว่าฉัน', sub: 'หน้าแดงทันที', icon: 'favorite', iconClass: 'text-primary' },
+    { label: 'พร้อมกันเลย', sub: 'เชื่อมจิตกันจริง ๆ', icon: 'sync_alt', iconClass: 'text-tertiary' },
+    { label: 'ข้อความตีสาม', sub: 'หลักฐานยังอยู่', icon: 'music_note', iconClass: 'text-secondary-container' },
   ],
 }
 
@@ -61,15 +61,15 @@ const COUPONS: Coupon[] = [
     code: '#HS-001 • SWEET REWARD',
     codeClass: 'bg-primary-fixed text-on-primary-fixed',
     statusDot: 'bg-primary animate-ping',
-    statusText: 'Active • 1 Available',
+    statusText: 'ใช้งานได้ • เหลือ 1 ครั้ง',
     statusClass: 'text-tertiary',
-    title: 'Bubble Tea on Demand',
-    description: 'Any size, unlimited boba toppings, delivered with extra sugar or ice level of your choice.',
-    metaLabel: 'Bearer Privileges',
-    metaValue: 'No Questions Asked',
+    title: 'ชานมไข่มุกตามสั่ง',
+    description: 'ขนาดไหนก็ได้ ท็อปปิ้งไข่มุกไม่จำกัด ปรับความหวานหรือน้ำแข็งตามที่คุณชอบ',
+    metaLabel: 'สิทธิ์ของผู้ถือ',
+    metaValue: 'ไม่มีถามสักคำ',
     metaClass: 'text-primary',
     buttonIcon: 'touch_app',
-    buttonLabel: 'Tap to Redeem',
+    buttonLabel: 'แตะเพื่อแลก',
     buttonClass: 'bg-primary-container text-on-primary',
     tearLabel: 'VOUCHER 01',
     serial: 'BBA-LOVE',
@@ -78,23 +78,23 @@ const COUPONS: Coupon[] = [
     barClass: 'bg-on-surface',
     stampClass: 'bg-primary/95 text-on-primary -rotate-12',
     stampIcon: 'verified',
-    stampText: 'REDEEMED ❤️',
+    stampText: 'แลกแล้ว ❤️',
   },
   {
     id: 'coupon-2',
     code: '#HS-002 • COZY PASS',
     codeClass: 'bg-secondary-fixed text-on-secondary-fixed',
     statusDot: 'bg-secondary',
-    statusText: 'Active • Unlimited',
+    statusText: 'ใช้งานได้ • ไม่จำกัด',
     statusClass: 'text-secondary',
-    title: 'One Day Peaceful Chill-Out',
+    title: 'วันพักผ่อนเงียบ ๆ หนึ่งวัน',
     description:
-      'Unlimited warm cuddles, streaming marathon rights (you choose all movies), and zero chores allowed.',
-    metaLabel: 'Validity',
-    metaValue: 'Forever Renewable',
+      'กอดอุ่น ๆ ไม่จำกัด สิทธิ์เลือกหนังดูยาวทั้งวัน (คุณเป็นคนเลือกทั้งหมด) และไม่ต้องทำงานบ้าน',
+    metaLabel: 'ระยะเวลา',
+    metaValue: 'ต่ออายุได้ตลอดไป',
     metaClass: 'text-secondary',
     buttonIcon: 'bedtime',
-    buttonLabel: 'Claim Snuggles',
+    buttonLabel: 'ขอกอดหนึ่งที',
     buttonClass: 'bg-secondary text-on-secondary',
     tearLabel: 'VOUCHER 02',
     serial: 'COZY-99',
@@ -103,23 +103,23 @@ const COUPONS: Coupon[] = [
     barClass: 'bg-on-surface',
     stampClass: 'bg-secondary/95 text-on-secondary -rotate-6',
     stampIcon: 'favorite',
-    stampText: 'APPROVED BY ME ❤️',
+    stampText: 'ฉันอนุมัติแล้ว ❤️',
   },
   {
     id: 'coupon-3',
     code: '#HS-003 • CRAVINGS',
     codeClass: 'bg-surface-container-high text-on-surface',
     statusDot: 'bg-tertiary',
-    statusText: 'Active • Valid 24/7',
+    statusText: 'ใช้งานได้ • ทุกเวลา',
     statusClass: 'text-tertiary',
-    title: 'Midnight Snack Run',
+    title: 'วิ่งหาของกินตอนเที่ยงคืน',
     description:
-      'Ice cream, fries, or spicy ramen run in pajamas. Distance is no obstacle to our cravings.',
-    metaLabel: 'Hours',
+      'วิ่งไปซื้อไอศกรีม เฟรนช์ฟรายส์ หรือราเมงเผ็ดในชุดนอน ระยะทางไม่ใช่อุปสรรคของความอยากของเรา',
+    metaLabel: 'เวลา',
     metaValue: '11 PM – 4 AM',
     metaClass: 'text-tertiary',
     buttonIcon: 'local_pizza',
-    buttonLabel: 'Send Me Out!',
+    buttonLabel: 'ส่งฉันไปซื้อเลย!',
     buttonClass: 'bg-tertiary text-on-tertiary',
     tearLabel: 'VOUCHER 03',
     serial: 'NITE-BIT',
@@ -128,7 +128,7 @@ const COUPONS: Coupon[] = [
     barClass: 'bg-on-surface',
     stampClass: 'bg-tertiary/95 text-on-tertiary rotate-3',
     stampIcon: 'done_all',
-    stampText: 'REDEEMED ❤️',
+    stampText: 'แลกแล้ว ❤️',
   },
   {
     id: 'coupon-4',
@@ -139,15 +139,15 @@ const COUPONS: Coupon[] = [
     statusDot: null,
     statusIcon: 'all_inclusive',
     statusClass: 'text-on-primary-fixed',
-    statusText: 'Never Expires',
-    title: 'Get Out of Any Minor Argument Free',
+    statusText: 'ไม่มีวันหมดอายุ',
+    title: 'บัตรผ่านหยุดทะเลาะเล็ก ๆ',
     description:
-      'Play this card immediately during any petty disagreement (who left the lights on, what to eat). Yields an automatic hug and peace treaty.',
-    metaLabel: 'Superpower',
-    metaValue: 'Instant Truce + Kiss',
+      'ใช้การ์ดนี้ได้ทันทีในทุกการทะเลาะเล็ก ๆ (ใครเปิดไฟทิ้งไว้ จะกินอะไรดี) แลกกับกอดและสัญญาสงบศึกอัตโนมัติ',
+    metaLabel: 'พลังพิเศษ',
+    metaValue: 'สงบศึกทันที + จูบ',
     metaClass: 'text-primary',
     buttonIcon: 'handshake',
-    buttonLabel: 'Redeem Truce',
+    buttonLabel: 'แลกสงบศึก',
     buttonClass: 'bg-primary text-on-primary',
     tearLabel: 'GOLD VIP',
     tearClass: 'text-on-primary-fixed',
@@ -157,7 +157,7 @@ const COUPONS: Coupon[] = [
     barClass: 'bg-primary',
     stampClass: 'bg-primary text-on-primary -rotate-12',
     stampIcon: 'verified_user',
-    stampText: 'APPROVED BY ME ❤️',
+    stampText: 'ฉันอนุมัติแล้ว ❤️',
   },
 ]
 
@@ -180,17 +180,17 @@ export default function CouponsPage() {
       <div className="flex flex-col gap-space-xs pt-space-xs">
         <div className="inline-flex items-center gap-space-xs self-start px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed">
           <Icon name="favorite" filled className="text-[16px]" />
-          <span className="font-label-sm text-label-sm font-semibold tracking-wide uppercase">Couples Arcade</span>
+          <span className="font-label-sm text-label-sm font-semibold tracking-wide uppercase">มุมเกมของคู่รัก</span>
         </div>
         <div className="flex items-center justify-between gap-space-sm">
-          <h1 className="font-headline-lg text-headline-lg text-on-surface">Tokens &amp; Tributes</h1>
+          <h1 className="font-headline-lg text-headline-lg text-on-surface">เหรียญและคำขอบคุณ</h1>
           <div className="flex items-center gap-1 bg-surface-container-high px-2.5 py-1 rounded-full text-tertiary shrink-0">
             <Icon name="stars" className="text-[16px]" />
-            <span className="font-label-sm text-label-sm font-bold">{readyCount} Coupons Ready</span>
+            <span className="font-label-sm text-label-sm font-bold">คูปองพร้อมใช้ {readyCount} ใบ</span>
           </div>
         </div>
         <p className="font-body-sm text-body-sm text-on-surface-variant">
-          Playful questions to test your heartstrings, paired with redeemable promises just for you.
+          คำถามสนุก ๆ ที่ทดสอบหัวใจของคุณ พร้อมคำสัญญาที่แลกได้ เฉพาะสำหรับคุณ
         </p>
       </div>
 
@@ -199,16 +199,16 @@ export default function CouponsPage() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-space-xs text-primary">
             <Icon name="quiz" filled className="text-[20px]" />
-            <span className="font-label-md text-label-md font-bold uppercase tracking-wider">Harmony Quiz • Q1 of 1</span>
+            <span className="font-label-md text-label-md font-bold uppercase tracking-wider">ควิซความเข้ากัน • ข้อ 1 จาก 1</span>
           </div>
           <span className="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-semibold">
-            Fun &amp; Sweet
+            สนุกและหวาน
           </span>
         </div>
 
         <div className="flex flex-col gap-space-xs">
           <p className="font-headline-sm text-headline-sm text-on-surface leading-snug">
-            “Who said <span className="text-primary font-bold">‘I miss you’</span> first?”
+            “ใคร<span className="text-primary font-bold">‘คิดถึงนะ’</span>พูดก่อน?”
           </p>
           <p className="font-body-sm text-body-sm text-on-surface-variant">{QUIZ.hint}</p>
         </div>
@@ -247,13 +247,13 @@ export default function CouponsPage() {
           </div>
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="font-label-md text-label-md font-bold text-on-primary-fixed">Match Score: 100%</span>
+              <span className="font-label-md text-label-md font-bold text-on-primary-fixed">คะแนนความเข้ากัน: 100%</span>
               <span className="font-label-sm text-[11px] px-1.5 py-px bg-primary text-on-primary rounded-full font-bold">
                 PERFECT
               </span>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant truncate">
-              Soulmate Compatibility locked in! ✨
+              ยืนยันแล้ว: เข้ากันเป็นคู่แท้! ✨
             </p>
           </div>
         </div>
@@ -263,8 +263,8 @@ export default function CouponsPage() {
       <section className="flex flex-col gap-space-md">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="font-headline-sm text-headline-sm text-on-surface">Redeemable Love Vouchers</h2>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">Tap to redeem whenever your heart demands.</p>
+            <h2 className="font-headline-sm text-headline-sm text-on-surface">คูปองความรักที่แลกได้</h2>
+            <p className="font-body-sm text-body-sm text-on-surface-variant">แตะเพื่อแลกได้ทุกเมื่อที่หัวใจต้องการ</p>
           </div>
           <Icon name="confirmation_number" className="text-tertiary text-[26px]" />
         </div>
@@ -291,9 +291,9 @@ export default function CouponsPage() {
               <Icon name="volunteer_activism" filled className="text-[28px] animate-pulse [animation-duration:1.2s]" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="font-label-sm text-label-sm uppercase tracking-widest text-white/80">Next Step</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-widest text-white/80">ขั้นต่อไป</span>
               <span className="font-headline-sm text-headline-sm font-bold text-white leading-tight">
-                Ready for the most important question?
+                พร้อมสำหรับคำถามที่สำคัญที่สุดหรือยัง?
               </span>
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function CouponsPage() {
           </div>
         </Link>
         <p className="font-body-sm text-body-sm text-on-surface-variant text-center mt-2.5">
-          Your answer unlocks the final sealed confession.
+          คำตอบของคุณจะปลดล็อกคำสารภาพสุดท้ายที่ผนึกไว้
         </p>
       </aside>
     </div>
@@ -345,7 +345,7 @@ function Voucher({ coupon, isRedeemed, onToggle }: Readonly<{ coupon: Coupon; is
                   className={`w-2 h-2 rounded-full inline-block ${isRedeemed ? 'bg-outline' : coupon.statusDot}`}
                 />
               )}
-              {isRedeemed ? 'Used just now' : coupon.statusText}
+              {isRedeemed ? 'เพิ่งใช้ไป' : coupon.statusText}
             </span>
           </div>
 
@@ -373,7 +373,7 @@ function Voucher({ coupon, isRedeemed, onToggle }: Readonly<{ coupon: Coupon; is
               }`}
             >
               <Icon name={isRedeemed ? 'check_circle' : coupon.buttonIcon} className="text-[16px]" />
-              <span>{isRedeemed ? 'Redeemed' : coupon.buttonLabel}</span>
+              <span>{isRedeemed ? 'แลกแล้ว' : coupon.buttonLabel}</span>
             </button>
           </div>
         </div>

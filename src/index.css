@@ -54,15 +54,15 @@
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
 
-  --font-display-lg: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-display-lg-mobile: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-headline-lg: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-headline-sm: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-label-md: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-label-sm: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body-lg: "Nunito Sans", system-ui, sans-serif;
-  --font-body-md: "Nunito Sans", system-ui, sans-serif;
-  --font-body-sm: "Nunito Sans", system-ui, sans-serif;
+  --font-display-lg: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-display-lg-mobile: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-headline-lg: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-headline-sm: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-label-md: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-label-sm: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-body-lg: "Nunito Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-body-md: "Nunito Sans", "Noto Sans Thai", system-ui, sans-serif;
+  --font-body-sm: "Nunito Sans", "Noto Sans Thai", system-ui, sans-serif;
 
   --text-display-lg: 40px;
   --text-display-lg--line-height: 48px;

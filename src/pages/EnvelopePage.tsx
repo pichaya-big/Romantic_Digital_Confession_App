@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Icon from '../components/Icon.tsx'
+import { useUnlock } from '../context/unlockStore.ts'
 
-const CORRECT_PIN = '1024'
+// วันที่เราเจอกันครั้งแรก รูปแบบ DDMMYY (19 10 69 -> 191069)
+const CORRECT_PIN = '191069'
+const PIN_LENGTH = 6
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 function digitBoxClass(error: boolean, filled: boolean): string {
@@ -29,8 +32,13 @@ export default function EnvelopePage() {
   const [opening, setOpening] = useState(false)
   const timers = useRef<ReturnType<typeof setTimeout>[]>([])
   const unlocked = pin === CORRECT_PIN
+  const { unlock } = useUnlock()
 
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
+
+  useEffect(() => {
+    if (unlocked) unlock()
+  }, [unlocked, unlock])
 
   const later = (fn: () => void, ms: number) => {
     timers.current.push(setTimeout(fn, ms))
@@ -50,10 +58,10 @@ export default function EnvelopePage() {
   }
 
   const handleDigit = (digit: string) => {
-    if (error || pin.length >= 4 || unlocked) return
+    if (error || pin.length >= PIN_LENGTH || unlocked) return
     const next = pin + digit
     setPin(next)
-    if (next.length === 4 && next !== CORRECT_PIN) {
+    if (next.length === PIN_LENGTH && next !== CORRECT_PIN) {
       setError(true)
       later(() => {
         setPin('')
@@ -88,7 +96,7 @@ export default function EnvelopePage() {
           <div className="flex items-center gap-space-xs min-w-0">
             <Icon name="music_note" filled className="text-primary text-[18px] animate-pulse" />
             <span className="font-label-sm text-label-sm text-tertiary truncate">
-              Now playing: <span className="font-semibold text-on-surface">Our Song (Lofi Acoustic)</span>
+              กำลังเล่น: <span className="font-semibold text-on-surface">Our Song (Lofi Acoustic)</span>
             </span>
           </div>
           <div aria-hidden="true" className="flex items-center gap-[3px] shrink-0 h-4 px-1">
@@ -122,29 +130,29 @@ export default function EnvelopePage() {
 
           <div className="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-label-sm text-label-sm mt-space-xs mb-space-xs">
             <Icon name="lock" className="text-[14px]" />
-            <span>For Your Eyes Only</span>
+            <span>สำหรับคุณคนเดียว</span>
           </div>
 
           <h2 className="font-headline-sm text-headline-sm text-on-surface mt-space-xs leading-tight">
-            A Sealed Letter For My Favorite Person
+            จดหมายผนึกถึงคนที่ฉันรักที่สุด
           </h2>
           <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-xs px-space-xs">
-            Whispers, late-night promises, and the quiet moments between us, locked safely in time.
+            เสียงกระซิบ คำสัญญายามดึก และช่วงเวลาเงียบ ๆ ของเรา ถูกเก็บไว้อย่างปลอดภัยในกาลเวลา
           </p>
 
           <div className="w-full mt-space-md pt-space-xs flex flex-col items-center">
             <label className="font-label-md text-label-md text-tertiary flex items-center gap-space-xs">
               <Icon name="key" className="text-[16px]" />
-              Enter our special date
+              กรอกวันที่เราเจอกันครั้งแรก
             </label>
 
             <div className="flex items-center justify-center gap-space-sm mt-space-sm">
-              {[0, 1, 2, 3].map((i) => {
+              {Array.from({ length: PIN_LENGTH }, (_, i) => {
                 const char = pin[i]
                 return (
                   <div
                     key={i}
-                    className={`w-12 h-14 rounded-DEFAULT flex flex-col items-center justify-center shadow-inner transition-all duration-300 ${digitBoxClass(error, char !== undefined)}`}
+                    className={`w-11 h-14 rounded-DEFAULT flex flex-col items-center justify-center shadow-inner transition-all duration-300 ${digitBoxClass(error, char !== undefined)}`}
                   >
                     {char !== undefined ? (
                       <span className="font-headline-sm text-headline-sm text-primary font-bold">{char}</span>
@@ -160,11 +168,11 @@ export default function EnvelopePage() {
               {unlocked ? (
                 <p className="font-label-md text-label-md text-primary flex items-center gap-1">
                   <Icon name="favorite" filled className="text-[18px]" />
-                  Passcode matched! Your heart is verified ❤️
+                  รหัสถูกต้อง! หัวใจของคุณได้รับการยืนยันแล้ว ❤️
                 </p>
               ) : (
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
-                  <span className="text-tertiary">Hint:</span> The night on the rooftop with hot cocoa ✨
+                  <span className="text-tertiary">คำใบ้:</span> คืนบนดาดฟ้ากับโกโก้ร้อน ✨
                 </p>
               )}
             </div>
@@ -181,8 +189,8 @@ export default function EnvelopePage() {
             ))}
             <button
               type="button"
-              title="Auto Fill Correct Date"
-              aria-label="Auto fill correct date"
+              title="กรอกรหัสที่ถูกต้องอัตโนมัติ"
+              aria-label="กรอกรหัสที่ถูกต้องอัตโนมัติ"
               onClick={() => {
                 setPin(CORRECT_PIN)
                 burstHearts()
@@ -194,7 +202,7 @@ export default function EnvelopePage() {
             <KeyButton onClick={() => handleDigit('0')}>0</KeyButton>
             <button
               type="button"
-              aria-label="Delete"
+              aria-label="ลบ"
               onClick={handleDelete}
               className="h-12 rounded-full bg-transparent hover:bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-transform active:scale-90"
             >
@@ -221,7 +229,7 @@ export default function EnvelopePage() {
               }`}
             />
             <Icon name="mail" filled className="text-[22px]" />
-            <span className="tracking-wide">Break Wax Seal &amp; Open</span>
+            <span className="tracking-wide">ทุบตราผนึกแล้วเปิดจดหมาย</span>
           </button>
           <div className="absolute inset-0 pointer-events-none overflow-visible">
             {hearts.map((h) => (
@@ -247,7 +255,7 @@ export default function EnvelopePage() {
 
         <p className="font-body-sm text-body-sm text-on-surface-variant/80 mt-space-sm text-center flex items-center justify-center gap-1">
           <Icon name="lock_reset" className="text-[14px] text-tertiary" />
-          Can&apos;t recall? Tap the lightbulb for our warm memory.
+          จำไม่ได้? กดรูปหลอดไฟเพื่อดูความทรงจำอันอบอุ่นของเรา
         </p>
       </div>
     </div>

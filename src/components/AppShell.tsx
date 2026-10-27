@@ -13,7 +13,7 @@ export default function AppShell() {
           <div className="flex items-center gap-space-sm min-w-0">
             <img
               src="/images/logo.jpg"
-              alt="Heartstrings Wax Seal Logo"
+              alt="โลโก้ Heartstrings"
               className="h-8 w-auto object-contain shrink-0"
             />
             <div className="flex flex-col truncate">
@@ -28,14 +28,14 @@ export default function AppShell() {
           <div className="flex items-center gap-space-xs shrink-0">
             <button
               type="button"
-              aria-label="Music Romance Soundtrack"
+              aria-label="เพลงโรแมนติก"
               className="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low/70 text-tertiary hover:text-primary transition-colors"
             >
               <Icon name="music_note" className="text-[22px]" />
             </button>
             <img
               src="/images/avatar.jpg"
-              alt="Profile"
+              alt="โปรไฟล์"
               className="w-8 h-8 rounded-full object-cover shrink-0"
             />
           </div>

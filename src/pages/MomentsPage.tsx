@@ -28,52 +28,52 @@ interface Floater {
 const MILESTONES: Milestone[] = [
   {
     date: 'Oct 14, 2023',
-    title: 'First Coffee Date @ The Corner Cafe',
-    description: 'Two steaming cups and three nervous hours that flew like minutes.',
+    title: 'นัดกาแฟครั้งแรกที่ The Corner Cafe',
+    description: 'กาแฟสองแก้วที่ยังอุ่นอยู่ และสามชั่วโมงแห่งความประหม่าที่ผ่านไปเหมือนไม่กี่นาที',
     image: '/images/latte.jpg',
-    alt: 'A porcelain latte cup with heart latte art on a wooden café table',
+    alt: 'แก้วลาเต้ลายหัวใจบนโต๊ะไม้ในคาเฟ่',
     node: { icon: 'favorite', className: 'bg-primary' },
     tape: 'bg-primary-fixed-dim/70',
-    secretLabel: 'His Secret Diary',
+    secretLabel: 'ไดอารี่ลับของเขา',
     secretIcon: 'stylus_note',
-    secret: '“You spilled sugar and laughed so cutely, I fell right there.”',
+    secret: '“คุณทำน้ำตาลหกแล้วหัวเราะน่ารักมาก ฉันตกหลุมรักตรงนั้นเลย”',
   },
   {
     date: 'Dec 22, 2023',
-    title: 'Stargazing at the Pier',
-    description: 'Winter breeze, wrapped in one scarf counting falling constellations.',
+    title: 'ชมดาวที่ท่าเรือ',
+    description: 'ลมหนาวพัดมา ห่มผ้าพันคอผืนเดียวกัน แล้วนับกลุ่มดาวที่พาดผ่านไป',
     image: '/images/pier.jpg',
-    alt: 'A night sky over a wooden pier reflecting starlight',
+    alt: 'ท้องฟ้ายามค่ำคืนเหนือท่าเรือไม้ที่สะท้อนแสงดาว',
     node: { icon: 'nightlight_round', className: 'bg-secondary' },
     tape: 'bg-secondary-fixed',
-    secretLabel: 'Her Secret Confession',
+    secretLabel: 'คำสารภาพลับของเธอ',
     secretIcon: 'auto_stories',
-    secret: '“It was 4°C but my hands were warm holding yours.”',
+    secret: '“อากาศ 4 องศา แต่มือฉันอุ่นตอนจับมือเธอ”',
   },
   {
     date: 'May 04, 2024',
-    title: 'First Road Trip & Ocean Sunset',
-    description: 'Windows rolled completely down, messy hair and coastal salt spray.',
+    title: 'ทริปแรกและพระอาทิตย์ตกทะเล',
+    description: 'กระจกเปิดสุด ผมยุ่ง และละอองเกลือจากทะเลโชยมา',
     image: '/images/roadtrip.jpg',
-    alt: 'Golden coastal sunset along a winding cliffside highway',
+    alt: 'พระอาทิตย์ตกชายฝั่งบนถนนริมผา',
     node: { icon: 'wb_sunny', className: 'bg-tertiary-container' },
     tape: 'bg-tertiary-fixed-dim/70',
-    secretLabel: 'Unreleased Memory',
+    secretLabel: 'ความทรงจำที่ยังไม่เคยเผย',
     secretIcon: 'music_note',
-    secret: '“We sang along terribly to every single song on the playlist.”',
+    secret: '“เราร้องตามเพลงทุกเพลงในเพลย์ลิสต์อย่างห่วยแตกมาก”',
   },
   {
     date: 'Aug 18, 2024',
-    title: 'Rainy Day Cooking Disaster',
+    title: 'วันฝนตกกับการทำอาหารพัง',
     emoji: '🤣',
-    description: 'Flour on our noses, smoke alarm serenades, and the sweetest takeout pizza ever.',
+    description: 'แป้งเปรอะจมูก เสียงสัญญาณควันเตือนดังลั่น และพิซซ่าสั่งกลับบ้านที่อร่อยที่สุดเท่าที่เคยกิน',
     image: '/images/pancakes.jpg',
-    alt: 'Burnt fluffy pancakes with strawberry syrup on a kitchen counter',
+    alt: 'แพนเค้กไหม้ ๆ ราดสตรอว์เบอร์รีบนเคาน์เตอร์ครัว',
     node: { icon: 'sentiment_very_satisfied', className: 'bg-primary' },
     tape: 'bg-primary-fixed-dim/70',
-    secretLabel: 'Unfiltered Memory',
+    secretLabel: 'ความทรงจำแบบไม่กรอง',
     secretIcon: 'menu_book',
-    secret: '“Even burnt to a crisp, they were the most delicious pancakes because you made them with love.”',
+    secret: '“แม้จะไหม้เกรียม มันก็เป็นแพนเค้กที่อร่อยที่สุด เพราะคุณทำด้วยความรัก”',
   },
 ]
 
@@ -111,15 +111,15 @@ export default function MomentsPage() {
       <section className="flex flex-col items-center text-center gap-space-xs pt-space-md max-w-md mx-auto">
         <div className="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-label-sm backdrop-blur-md">
           <Icon name="auto_awesome" filled className="text-[14px]" />
-          <span>Chapter 1: The Story of Us</span>
+          <span>บทที่ 1: เรื่องราวของเรา</span>
           <span className="text-on-surface-variant">•</span>
-          <span>365 Days &amp; Counting</span>
+          <span>365 วันและยังนับต่อ</span>
         </div>
         <h1 className="font-display-lg-mobile text-display-lg-mobile text-on-surface mt-space-xs">
-          Our Sweetest Milestones
+          ช่วงเวลาที่หวานที่สุดของเรา
         </h1>
         <p className="font-body-md text-body-md text-on-surface-variant max-w-xs">
-          Every second traced in whispered laughs and Polaroid frames. Tap each memory to unfold secret notes.
+          ทุกวินาทีถูกถักทอด้วยเสียงหัวเราะกระซิบและกรอบ Polaroid แตะแต่ละความทรงจำเพื่อเปิดโน้ตลับ
         </p>
       </section>
 
@@ -138,11 +138,11 @@ export default function MomentsPage() {
           className="relative rounded-lg bg-surface-container-low/90 backdrop-blur-md p-space-md flex items-center justify-between gap-space-sm shadow-sm"
         >
           <div className="flex flex-col">
-            <span className="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Reliving the Spark</span>
+            <span className="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">ย้อนประกายรัก</span>
             <div className="flex items-center gap-1 text-primary">
               <Icon name="favorite" filled className="text-[16px]" />
               <span className="font-label-md text-label-md text-on-surface">{count}</span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant">sweet reactions</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant">ปฏิกิริยาหวาน ๆ</span>
             </div>
           </div>
           <div className="flex items-center gap-space-xs">
@@ -150,7 +150,7 @@ export default function MomentsPage() {
               <button
                 key={emoji}
                 type="button"
-                aria-label={`Send ${emoji} reaction`}
+                aria-label={`ส่งปฏิกิริยา ${emoji}`}
                 onClick={() => sendReaction(emoji)}
                 className="w-11 h-11 rounded-full bg-surface-container-lowest shadow-sm text-xl flex items-center justify-center transition-transform active:scale-90 hover:scale-105"
               >
@@ -164,7 +164,7 @@ export default function MomentsPage() {
           to="/reasons"
           className="w-full py-4 px-space-lg rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-[0.98] transition-all"
         >
-          <span>Next Chapter: Reasons Why</span>
+          <span>บทต่อไป: เหตุผลที่ชอบเธอ</span>
           <Icon name="arrow_forward" className="text-[20px]" />
         </Link>
       </section>
@@ -210,7 +210,7 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
           role="button"
           tabIndex={0}
           aria-pressed={flipped}
-          aria-label={`${milestone.title}, ${flipped ? 'show photo' : 'reveal secret note'}`}
+          aria-label={`${milestone.title}, ${flipped ? 'แสดงรูป' : 'เปิดโน้ตลับ'}`}
           onClick={toggleFlip}
           onKeyDown={handleFlipKey}
         >
@@ -235,7 +235,7 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
                 <p className="font-body-sm text-body-sm text-on-surface-variant">{milestone.description}</p>
                 <span className="mt-1 w-full py-2 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm flex items-center justify-center gap-1.5">
                   <Icon name="lock_open" className="text-[14px]" />
-                  Tap to flip &amp; reveal secret note
+                  แตะเพื่อพลิกและดูโน้ตลับ
                 </span>
               </div>
             </div>
@@ -252,7 +252,7 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
                   <Icon name="favorite" filled className="text-[14px] text-primary" />
                   {milestone.date}
                 </span>
-                <span>Flip back</span>
+                <span>พลิกกลับ</span>
               </div>
             </div>
           </div>

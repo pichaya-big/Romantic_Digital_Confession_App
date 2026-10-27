@@ -2,16 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import Icon from '../components/Icon.tsx'
 
 const DODGE_PHRASES = [
-  'Oops, button ran away! 🏃💨',
-  "Nice try! Can't click this! 🙈",
-  'Almost got it... not! 💖',
-  'Only one right answer! ✨',
-  "It's destined to be YES! 🥰",
+  'ว้ายปุ่มวิ่งหนีแล้ว! 🏃💨',
+  'พยายามดีมาก! กดไม่ได้หรอก! 🙈',
+  'เกือบได้แล้ว... ไม่ได้! 💖',
+  'มีคำตอบที่ถูกต้องแค่ข้อเดียว! ✨',
+  'โชคชะตากำหนดให้เป็น YES! 🥰',
 ]
 
 type Phase = 'proposal' | 'leaving' | 'celebration'
 
-const DEFAULT_NO_TEXT = 'Let me think... 🤔'
+const DEFAULT_NO_TEXT = 'ขอคิดก่อนนะ... 🤔'
 
 export default function QuestionPage() {
   const [phase, setPhase] = useState<Phase>('proposal') // 'proposal' | 'leaving' | 'celebration'
@@ -69,7 +69,7 @@ export default function QuestionPage() {
           <div className="flex items-center justify-center">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm shadow-sm">
               <Icon name="favorite" filled className="text-[14px]" />
-              Chapter 5 • The Milestone
+              บทที่ 5 • ช่วงเวลาสำคัญ
             </span>
           </div>
 
@@ -83,24 +83,24 @@ export default function QuestionPage() {
             </div>
 
             <p className="font-label-sm text-label-sm text-tertiary uppercase tracking-widest mb-space-xs">
-              From Deep Within My Heart
+              จากส่วนลึกของหัวใจฉัน
             </p>
             <h1 className="font-headline-lg text-headline-lg text-on-surface mb-space-md leading-tight">
-              “Every moment with you has been my favorite chapter. Will you be my partner?”
+              “ทุกช่วงเวลากับคุณคือบทที่ฉันชอบที่สุด คุณจะเป็นคู่ชีวิตของฉันไหม?”
             </h1>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-xs leading-relaxed">
-              Through every quiet laugh, late night message, and unspoken thought, you turned this journey into poetry.
+              ผ่านทุกเสียงหัวเราะเบา ๆ ข้อความดึก ๆ และความคิดที่ไม่ได้พูดออกมา คุณทำให้การเดินทางนี้กลายเป็นบทกวี
             </p>
 
             <figure className="mt-space-lg w-full rounded-DEFAULT overflow-hidden shadow-md bg-surface-container-low p-2">
               <img
                 src="/images/couple.jpg"
-                alt="Two sweethearts holding hands against a warm sunset horizon"
+                alt="คู่รักสองคนจูงมือกันท่ามกลางพระอาทิตย์ตก"
                 className="w-full h-44 object-cover rounded-DEFAULT"
               />
               <figcaption className="pt-2 pb-1 text-center font-label-sm text-label-sm text-on-surface-variant flex items-center justify-center gap-1">
                 <Icon name="photo_camera" className="text-[14px]" />
-                <span>Where our forever begins</span>
+                <span>ที่ที่ความรักตลอดไปเริ่มต้น</span>
               </figcaption>
             </figure>
           </div>
@@ -111,7 +111,7 @@ export default function QuestionPage() {
               onClick={accept}
               className="group relative w-full py-4 px-6 rounded-full bg-gradient-to-r from-primary-container to-tertiary text-on-primary font-headline-sm text-headline-sm shadow-xl shadow-primary-container/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 overflow-hidden"
             >
-              <span className="relative z-10">YES! A thousand times yes!</span>
+              <span className="relative z-10">YES! ตอบตกลงนับพันครั้ง!</span>
               <Icon name="favorite" filled className="relative z-10 transition-transform group-hover:scale-125" />
               <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/0 via-surface-container-lowest/25 to-surface-container-lowest/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </button>
@@ -136,7 +136,7 @@ export default function QuestionPage() {
 
             <p className="font-body-sm text-body-sm text-on-surface-variant/70 text-center flex items-center justify-center gap-1">
               <Icon name="switch_left" className="text-[14px]" />
-              Sealed with unconditional love
+              ผนึกไว้ด้วยความรักที่ไม่มีเงื่อนไข
             </p>
           </div>
         </div>
@@ -150,9 +150,9 @@ export default function QuestionPage() {
             <div className="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1 animate-bounce">
               <Icon name="celebration" filled className="text-[32px]" />
             </div>
-            <h1 className="font-headline-lg text-headline-lg text-on-surface">She Said Yes! ♥</h1>
+            <h1 className="font-headline-lg text-headline-lg text-on-surface">เธอตอบตกลงแล้ว! ♥</h1>
             <p className="font-body-md text-body-md text-tertiary">
-              Our chapter as forever partners officially begins right now.
+              บทของเราในฐานะคู่ชีวิตตลอดไปได้เริ่มต้นอย่างเป็นทางการแล้วตอนนี้
             </p>
           </div>
 
@@ -166,9 +166,9 @@ export default function QuestionPage() {
               <div className="flex justify-between items-start gap-2">
                 <div className="flex flex-col">
                   <span className="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">
-                    Verified Union
+                    สหภาพที่ได้รับการยืนยัน
                   </span>
-                  <span className="font-headline-sm text-headline-sm text-on-surface">Official Certificate of Us</span>
+                  <span className="font-headline-sm text-headline-sm text-on-surface">ใบรับรองอย่างเป็นทางการของเรา</span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-container font-label-sm text-label-sm font-bold flex items-center gap-1 shrink-0">
                   <Icon name="verified_user" filled className="text-[14px]" />
@@ -178,18 +178,18 @@ export default function QuestionPage() {
 
               <div className="grid grid-cols-2 gap-space-sm pt-2">
                 <div className="p-3 rounded-DEFAULT bg-surface-container-low flex flex-col">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Issued To</span>
-                  <span className="font-headline-sm text-headline-sm text-on-surface mt-0.5">My Soulmate</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">ออกให้แก่</span>
+                  <span className="font-headline-sm text-headline-sm text-on-surface mt-0.5">คู่แท้ของฉัน</span>
                 </div>
                 <div className="p-3 rounded-DEFAULT bg-surface-container-low flex flex-col">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Effective Date</span>
-                  <span className="font-headline-sm text-headline-sm text-primary mt-0.5">Today &amp; Forever</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">วันที่มีผล</span>
+                  <span className="font-headline-sm text-headline-sm text-primary mt-0.5">วันนี้และตลอดไป</span>
                 </div>
               </div>
 
               <div className="p-3 rounded-DEFAULT bg-surface-container-low flex items-center justify-between">
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Registry Hash</span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant">รหัสทะเบียน</span>
                   <span className="font-label-md text-label-md text-on-surface font-mono tracking-wider">
                     #LOVE-2024-INFINITY
                   </span>
@@ -210,18 +210,18 @@ export default function QuestionPage() {
                   </div>
                   <div className="flex flex-col">
                     <span className="font-label-sm text-label-sm text-on-surface font-bold">Heartstrings Registry</span>
-                    <span className="font-label-sm text-[10px] text-on-surface-variant">Immutable Eternal Promise</span>
+                    <span className="font-label-sm text-[10px] text-on-surface-variant">คำสัญญาถาวรที่เปลี่ยนแปลงไม่ได้</span>
                   </div>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="font-label-sm text-[10px] text-tertiary uppercase">Authentic Seal</span>
+                  <span className="font-label-sm text-[10px] text-tertiary uppercase">ตราประทับแท้</span>
                   <span className="font-headline-sm text-headline-sm text-primary italic font-serif">♥ Forever ♥</span>
                 </div>
               </div>
             </div>
 
             <div className="relative w-full h-28 overflow-hidden bg-surface-container-high">
-              <img src="/images/rings.jpg" alt="Silver rings beside blush roses and handwritten letters" className="w-full h-full object-cover" />
+              <img src="/images/rings.jpg" alt="แหวนเงินวางข้างกุหลาบสีชมพูและจดหมายลายมือ" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent" />
             </div>
           </div>
@@ -229,19 +229,19 @@ export default function QuestionPage() {
           <div className="flex flex-col gap-space-sm w-full pt-space-xs">
             <button
               type="button"
-              onClick={() => showToast('Official Keepsake Pass downloaded! 💌')}
+              onClick={() => showToast('ดาวน์โหลดบัตรที่ระลึกอย่างเป็นทางการแล้ว! 💌')}
               className="w-full py-3.5 px-space-md rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm shadow-lg shadow-primary-container/25 flex items-center justify-center gap-2 hover:opacity-95 active:scale-[0.98] transition-all"
             >
               <Icon name="download" className="text-[20px]" />
-              Download Keepsake Pass
+              ดาวน์โหลดบัตรที่ระลึก
             </button>
             <button
               type="button"
-              onClick={() => showToast('Story template ready to publish! 📸')}
+              onClick={() => showToast('เทมเพลตพร้อมโพสต์แล้ว! 📸')}
               className="w-full py-3 px-space-md rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-2"
             >
               <Icon name="share" className="text-[18px] text-primary" />
-              Share to Instagram Story
+              แชร์ไปยัง Instagram Story
             </button>
             <button
               type="button"
@@ -249,7 +249,7 @@ export default function QuestionPage() {
               className="w-full py-2.5 px-space-md rounded-full bg-transparent text-tertiary font-label-md text-label-md hover:bg-surface-container-low/50 transition-colors flex items-center justify-center gap-1.5"
             >
               <Icon name="replay" className="text-[18px]" />
-              Replay Letter From Start
+              เล่นจดหมายใหม่ตั้งแต่ต้น
             </button>
           </div>
         </div>

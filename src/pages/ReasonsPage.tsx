@@ -40,44 +40,44 @@ const WAVE: WaveBar[] = [
 
 const REASONS: Reason[] = [
   {
-    title: 'Your infectious laugh',
+    title: 'เสียงหัวเราะติดหูของคุณ',
     description:
-      'The way your whole face lights up whenever you hear a silly dad joke. It turns ordinary rooms warm instantly.',
+      'ทุกครั้งที่ได้ยินมุกตลกเฉิ่ม ๆ ใบหน้าของคุณจะสว่างขึ้นทันที ห้องธรรมดาก็อบอุ่นขึ้นได้ในพริบตา',
     icon: 'auto_awesome',
     iconClass: 'bg-primary-fixed/60 text-primary',
     image: '/images/laugh.jpg',
-    alt: 'Someone laughing joyfully in a sunlit room',
-    caption: 'Every single day',
+    alt: 'คนกำลังหัวเราะอย่างมีความสุขในห้องที่มีแสงแดดส่องถึง',
+    caption: 'ทุกวัน',
   },
   {
-    title: 'How safe you make me feel',
+    title: 'ความรู้สึกปลอดภัยที่คุณมอบให้',
     description:
-      'No matter how chaotic the world gets, one hug from you resets everything. My heart finds peace beside yours.',
+      'ไม่ว่าโลกจะวุ่นวายแค่ไหน กอดเดียวจากคุณก็รีเซ็ตทุกอย่างได้ หัวใจของฉันสงบอยู่ข้างคุณ',
     icon: 'wb_sunny',
     iconClass: 'bg-secondary-fixed text-secondary',
     image: '/images/hug.jpg',
-    alt: 'A tender embrace wrapped in a knitted blanket at dusk',
-    caption: 'My safe harbor',
+    alt: 'กอดอ่อนโยนห่มผ้าห่มถักช่วงพลบค่ำ',
+    caption: 'ท่าเรือที่ปลอดภัยของฉัน',
   },
   {
-    title: 'Your kindness to strangers',
+    title: 'ความใจดีของคุณต่อคนแปลกหน้า',
     description:
-      'Watching you care for stray animals and say thank you to every barista. Your tender heart is so rare.',
+      'การได้เห็นคุณดูแลสัตว์จรจัดและขอบคุณบาริสต้าทุกคน หัวใจอ่อนโยนของคุณหาได้ยากมาก',
     icon: 'volunteer_activism',
     iconClass: 'bg-tertiary-fixed text-tertiary',
     image: '/images/cup.jpg',
-    alt: 'Gentle hands holding a warm ceramic cup with heart latte art',
-    caption: 'Pure gold heart',
+    alt: 'มือที่ถือแก้วเซรามิกอุ่น ๆ ลายหัวใจ',
+    caption: 'หัวใจทองคำแท้',
   },
   {
-    title: 'Our 2 AM deep talks',
+    title: 'บทสนทนาลึก ๆ ตอนตีสอง',
     description:
-      "Talking about parallel universes, our dream cottage, and silly secrets. Time stops when I'm speaking with you.",
+      "คุยกันเรื่องจักรวาลคู่ขนาน กระท่อมในฝันของเรา และความลับเฉิ่ม ๆ เวลาหยุดนิ่งเมื่อฉันได้คุยกับคุณ",
     icon: 'bedtime',
     iconClass: 'bg-secondary-fixed/70 text-secondary',
     image: '/images/stars.jpg',
-    alt: 'Two silhouettes stargazing beneath a starry sky',
-    caption: 'To the stars',
+    alt: 'เงาคนสองคนดูดาวใต้ท้องฟ้ายามค่ำคืน',
+    caption: 'ถึงดวงดาว',
   },
 ]
 
@@ -98,11 +98,11 @@ export default function ReasonsPage() {
       <header className="flex flex-col gap-space-xs text-center max-w-md mx-auto w-full pt-space-xs">
         <div className="inline-flex items-center justify-center gap-1.5 self-center px-3 py-1 rounded-full bg-secondary-fixed/50 text-secondary backdrop-blur-md">
           <Icon name="favorite" filled className="text-[16px]" />
-          <span className="font-label-sm text-label-sm uppercase tracking-wider">Reasons Why</span>
+          <span className="font-label-sm text-label-sm uppercase tracking-wider">เหตุผลที่ชอบเธอ</span>
         </div>
-        <h1 className="font-headline-lg text-headline-lg text-on-surface">Little Things That Stole My Heart</h1>
+        <h1 className="font-headline-lg text-headline-lg text-on-surface">สิ่งเล็ก ๆ ที่ขโมยหัวใจฉันไป</h1>
         <p className="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto">
-          Swipe or tap each note to discover what makes you irreplaceable.
+          ปัดหรือแตะแต่ละโน้ตเพื่อค้นพบว่าอะไรทำให้คุณไม่มีใครแทนได้
         </p>
       </header>
 
@@ -115,7 +115,7 @@ export default function ReasonsPage() {
           to="/coupons"
           className="w-full py-4 px-space-lg rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-[0.98] transition-all"
         >
-          <span>Continue To Our Love Coupons</span>
+          <span>ไปที่คูปองความรักของเรา</span>
           <Icon name="arrow_forward" className="text-[20px]" />
         </Link>
       </footer>
@@ -158,8 +158,8 @@ function VoiceMemo() {
             <Icon name="mic" className="text-[18px]" />
           </div>
           <div className="flex flex-col">
-            <span className="font-label-md text-label-md text-on-surface">A Voice Memo For You</span>
-            <span className="font-label-sm text-label-sm text-tertiary">01:24 • Recorded late night</span>
+            <span className="font-label-md text-label-md text-on-surface">ข้อความเสียงถึงคุณ</span>
+            <span className="font-label-sm text-label-sm text-tertiary">01:24 • อัดตอนดึก</span>
           </div>
         </div>
         <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed/60 text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1">
@@ -171,7 +171,7 @@ function VoiceMemo() {
       <div className="flex items-center gap-3 py-1">
         <button
           type="button"
-          aria-label={playing ? 'Pause audio note' : 'Play audio note'}
+          aria-label={playing ? 'หยุดโน้ตเสียง' : 'เล่นโน้ตเสียง'}
           onClick={() => setPlaying((p) => !p)}
           className="w-12 h-12 rounded-full bg-gradient-to-tr from-primary to-primary-container text-on-primary flex items-center justify-center shadow-md active:scale-95 transition-transform shrink-0"
         >
@@ -192,7 +192,7 @@ function VoiceMemo() {
             ref={trackRef}
             role="slider"
             tabIndex={0}
-            aria-label="Seek voice memo"
+            aria-label="ปรับตำแหน่งข้อความเสียง"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={progress}
@@ -211,7 +211,7 @@ function VoiceMemo() {
       <div className="rounded bg-surface-container-low/70 p-space-sm flex items-start gap-2">
         <Icon name="format_quote" className="text-[16px] text-tertiary shrink-0 mt-0.5" />
         <p className="font-body-sm text-body-sm text-on-surface-variant italic">
-          “Hey, I wanted to say this out loud so you could always listen when you need a reminder...”
+          “เฮ้ ฉันอยากพูดมันออกมาดัง ๆ เพื่อให้คุณฟังได้ทุกครั้งที่ต้องการกำลังใจ...”
         </p>
       </div>
     </section>
@@ -241,7 +241,7 @@ function ReasonCarousel() {
       <div className="flex items-center justify-between px-1">
         <span className="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
           <Icon name="auto_awesome" filled className="text-[18px] text-primary" />
-          Curated Keepsakes
+          ของที่ระลึกคัดสรร
         </span>
         <span className="font-label-sm text-label-sm text-tertiary px-2 py-0.5 rounded-full bg-tertiary-fixed/40">
           {index} of {REASONS.length}
@@ -264,7 +264,7 @@ function ReasonCarousel() {
                   <Icon name={reason.icon} filled className="text-[22px]" />
                 </span>
                 <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-                  Reason #{i + 1}
+                  เหตุผลที่ {i + 1}
                 </span>
               </div>
               <h3 className="font-headline-sm text-headline-sm text-on-surface">{reason.title}</h3>
@@ -285,7 +285,7 @@ function ReasonCarousel() {
                 }`}
               >
                 <Icon name="favorite" filled={liked[i]} className="text-[18px]" />
-                <span>{liked[i] ? 'Cherished' : 'Cherish this'}</span>
+                <span>{liked[i] ? 'เก็บไว้ในใจแล้ว' : 'เก็บไว้ในใจ'}</span>
               </button>
               <span className="font-label-sm text-label-sm text-on-surface-variant/80">{reason.caption}</span>
             </div>
@@ -305,7 +305,7 @@ function ReactionRibbon() {
 
   const react = (i: number) => {
     setCounts((prev) => prev.map((c, idx) => (idx === i ? c + 1 : c)))
-    setFeedback(`${PILLS[i].emoji} Note remembered!`)
+    setFeedback(`${PILLS[i].emoji} จดจำโน้ตนี้แล้ว!`)
     clearTimeout(timer.current)
     timer.current = setTimeout(() => setFeedback(null), 1800)
   }
@@ -313,7 +313,7 @@ function ReactionRibbon() {
   return (
     <section className="w-full max-w-md mx-auto rounded-lg bg-surface-container-low/90 backdrop-blur-md p-space-md flex flex-col gap-space-sm shadow-sm">
       <div className="flex items-center justify-between">
-        <span className="font-label-md text-label-md text-on-surface">Send a reaction to this screen</span>
+        <span className="font-label-md text-label-md text-on-surface">ส่งปฏิกิริยาให้หน้านี้</span>
         <span
           className={`font-label-sm text-label-sm text-primary transition-opacity ${feedback ? 'opacity-100' : 'opacity-0'}`}
         >

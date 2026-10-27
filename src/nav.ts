@@ -5,9 +5,9 @@ export interface Tab {
 }
 
 export const TABS: Tab[] = [
-  { path: '/envelope', label: 'Envelope', icon: 'mail' },
-  { path: '/moments', label: 'Moments', icon: 'auto_stories' },
-  { path: '/reasons', label: 'Reasons', icon: 'favorite' },
-  { path: '/coupons', label: 'Coupons', icon: 'redeem' },
-  { path: '/the-question', label: 'The Question', icon: 'volunteer_activism' },
+  { path: '/envelope', label: 'จดหมาย', icon: 'mail' },
+  { path: '/moments', label: 'ความทรงจำ', icon: 'auto_stories' },
+  { path: '/reasons', label: 'เหตุผล', icon: 'favorite' },
+  { path: '/coupons', label: 'คูปอง', icon: 'redeem' },
+  { path: '/the-question', label: 'คำถามสำคัญ', icon: 'volunteer_activism' },
 ]
