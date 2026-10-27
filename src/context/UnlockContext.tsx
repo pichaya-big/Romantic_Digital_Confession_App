@@ -12,7 +12,7 @@ function readStoredUnlock(): boolean {
   }
 }
 
-export function UnlockProvider({ children }: { children: ReactNode }) {
+export function UnlockProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [unlocked, setUnlocked] = useState(readStoredUnlock)
 
   const unlock = useCallback(() => {

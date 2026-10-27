@@ -15,6 +15,16 @@ interface Quiz {
   options: QuizOption[]
 }
 
+interface BarSegment {
+  id: string
+  w: string
+}
+
+// สร้าง id ให้แท่งบาร์โค้ดตอนประกาศข้อมูล จะได้ไม่ต้องใช้ index เป็น key
+function barcode(prefix: string, widths: string[]): BarSegment[] {
+  return widths.map((w, i) => ({ id: `${prefix}-${i}`, w }))
+}
+
 interface Coupon {
   id: string
   golden?: boolean
@@ -37,7 +47,7 @@ interface Coupon {
   tearClass?: string
   serial: string
   serialClass: string
-  bars: string[]
+  bars: BarSegment[]
   barClass: string
   stampClass: string
   stampIcon: string
@@ -74,7 +84,7 @@ const COUPONS: Coupon[] = [
     tearLabel: 'VOUCHER 01',
     serial: 'BBA-LOVE',
     serialClass: 'text-tertiary',
-    bars: ['w-0.5', 'w-1', 'w-0.5', 'w-1.5', 'w-0.5', 'w-1', 'w-0.5', 'w-2'],
+    bars: barcode('bba', ['w-0.5', 'w-1', 'w-0.5', 'w-1.5', 'w-0.5', 'w-1', 'w-0.5', 'w-2']),
     barClass: 'bg-on-surface',
     stampClass: 'bg-primary/95 text-on-primary -rotate-12',
     stampIcon: 'verified',
@@ -99,7 +109,7 @@ const COUPONS: Coupon[] = [
     tearLabel: 'VOUCHER 02',
     serial: 'COZY-99',
     serialClass: 'text-secondary',
-    bars: ['w-1', 'w-0.5', 'w-2', 'w-0.5', 'w-1', 'w-1.5'],
+    bars: barcode('cozy', ['w-1', 'w-0.5', 'w-2', 'w-0.5', 'w-1', 'w-1.5']),
     barClass: 'bg-on-surface',
     stampClass: 'bg-secondary/95 text-on-secondary -rotate-6',
     stampIcon: 'favorite',
@@ -124,7 +134,7 @@ const COUPONS: Coupon[] = [
     tearLabel: 'VOUCHER 03',
     serial: 'NITE-BIT',
     serialClass: 'text-tertiary',
-    bars: ['w-0.5', 'w-2', 'w-1', 'w-0.5', 'w-1'],
+    bars: barcode('nite', ['w-0.5', 'w-2', 'w-1', 'w-0.5', 'w-1']),
     barClass: 'bg-on-surface',
     stampClass: 'bg-tertiary/95 text-on-tertiary rotate-3',
     stampIcon: 'done_all',
@@ -153,7 +163,7 @@ const COUPONS: Coupon[] = [
     tearClass: 'text-on-primary-fixed',
     serial: 'TRUCE-00',
     serialClass: 'text-primary',
-    bars: ['w-1', 'w-0.5', 'w-1.5', 'w-0.5', 'w-2'],
+    bars: barcode('truce', ['w-1', 'w-0.5', 'w-1.5', 'w-0.5', 'w-2']),
     barClass: 'bg-primary',
     stampClass: 'bg-primary text-on-primary -rotate-12',
     stampIcon: 'verified_user',
@@ -390,8 +400,8 @@ function Voucher({ coupon, isRedeemed, onToggle }: Readonly<{ coupon: Coupon; is
             {coupon.tearLabel}
           </span>
           <div className="flex items-center gap-0.5 h-16 w-8 my-auto opacity-70">
-            {coupon.bars.map((w, i) => (
-              <div key={i} className={`h-full ${w} ${coupon.barClass}`} />
+            {coupon.bars.map((bar) => (
+              <div key={bar.id} className={`h-full ${bar.w} ${coupon.barClass}`} />
             ))}
           </div>
           <span className={`font-label-sm text-[10px] font-bold tracking-tighter ${coupon.serialClass}`}>

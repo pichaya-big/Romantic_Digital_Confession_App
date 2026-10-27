@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import type { CSSProperties, KeyboardEvent } from 'react'
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon.tsx'
 
@@ -188,13 +188,6 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
 
   const toggleFlip = () => setFlipped((f) => !f)
 
-  const handleFlipKey = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      toggleFlip()
-    }
-  }
-
   return (
     <div className="relative pb-10 last:pb-0">
       <div
@@ -205,14 +198,12 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
 
       <div className={`relative ${tilt} transition-transform duration-300`}>
         <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 rounded-sm ${milestone.tape} opacity-80 z-10`} />
-        <div
-          className="relative [perspective:1200px]"
-          role="button"
-          tabIndex={0}
+        <button
+          type="button"
+          className="relative block w-full text-left [perspective:1200px]"
           aria-pressed={flipped}
           aria-label={`${milestone.title}, ${flipped ? 'แสดงรูป' : 'เปิดโน้ตลับ'}`}
           onClick={toggleFlip}
-          onKeyDown={handleFlipKey}
         >
           <div
             className={`grid transition-transform duration-700 [transform-style:preserve-3d] ${
@@ -256,7 +247,7 @@ function MilestoneItem({ milestone, tilt }: Readonly<{ milestone: Milestone; til
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   )
